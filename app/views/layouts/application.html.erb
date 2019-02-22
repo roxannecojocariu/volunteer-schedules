@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <%= render "layouts/nav_bar" %>
+    <%- flash.each do |key, value| -%>
+    <div class="flash flash-<%= key %>">
+      <%= value %>
+    </div>
+    <%- end -%>
+
     <%= yield %>
+
+    <%= javascript_include_tag "application" %>
+
+    <%= yield :extra_footer %>
   </body>
 </html>
